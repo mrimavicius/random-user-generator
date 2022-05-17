@@ -6,9 +6,8 @@
 fetch("https://randomuser.me/api/")
     .then(response => response.json())
     .then(data => {
-        console.log(data.results[0].picture.medium)
-        console.log(data.results[0].dob.age)
-
+        var h1 = document.createElement("h1")
+        h1.textContent = "Random user generator"
         var section = document.createElement("section")
 
         var img = document.createElement("img")
@@ -17,7 +16,6 @@ fetch("https://randomuser.me/api/")
         var div = document.createElement("div")
         var name = document.createElement("h2")
         name.textContent = `${data.results[0].name.first} ${data.results[0].name.last}` 
-        console.log(data.results[0].name.first)
         
         var age = document.createElement("span")
         age.textContent = ` ${data.results[0].dob.age} years old`
@@ -25,7 +23,7 @@ fetch("https://randomuser.me/api/")
         var email = document.createElement("p")
         email.textContent = data.results[0].email
         
-        document.body.append(section)
+        document.body.append(h1, section)
         section.append(img, div, email)
         div.append(name, age)
         })
